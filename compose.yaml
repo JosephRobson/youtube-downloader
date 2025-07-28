@@ -1,0 +1,15 @@
+services:
+  pinchflat:
+    image: "ghcr.io/kieraneglin/pinchflat:latest"
+    ports:
+      - "8945:8945"
+    environment:
+      TZ: "GB"
+    volumes:
+      - type: bind
+        source: ./config
+        target: /config
+      - type: bind
+        source: ./downloads
+        target: /downloads
+    restart: always
