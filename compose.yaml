@@ -7,9 +7,9 @@ services:
       TZ: "GB"
     volumes:
       - type: bind
-        source: ./config
+        source: /media/joe/Big/YouTube/config
         target: /config
       - type: bind
-        source: ./downloads
+        source: /media/joe/Big/YouTube/downloads
         target: /downloads
     restart: always
