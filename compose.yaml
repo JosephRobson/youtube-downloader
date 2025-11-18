@@ -1,15 +1,12 @@
 services:
   pinchflat:
     image: "ghcr.io/kieraneglin/pinchflat:latest"
+    container_name: pinchflat
     ports:
       - "8945:8945"
     environment:
       TZ: "GB"
     volumes:
-      - type: bind
-        source: /media/joe/Big/YouTube/config
-        target: /config
-      - type: bind
-        source: /media/joe/Big/YouTube/downloads
-        target: /downloads
-    restart: always
+      - ${CONFIG_BASE}/pinchflat/config:/config
+      - ${CONTENT_BASE}/youtube:/downloads
+    restart: 'unless-stopped'
